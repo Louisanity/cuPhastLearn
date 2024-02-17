@@ -293,7 +293,7 @@ def two_qubit_pauli(circ: QuantumCircuit, qreg: QuantumRegister, qubit_1: int, q
     # Replace this with RZZ when they fix the printing
     # They have, but it doesn't work for me for some reason
     circ.cx(qreg[qubit_1], qreg[qubit_2])
-    circ.u1(angle, qreg[qubit_2])
+    circ.p(angle, qreg[qubit_2])
     circ.cx(qreg[qubit_1], qreg[qubit_2])
 
     for i in range(2):
