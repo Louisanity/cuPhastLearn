@@ -5,6 +5,8 @@ from itertools import cycle, combinations_with_replacement, permutations, count
 import numpy as np
 # from utils import two_qubit_pauli
 import utils
+import pennylane as qml
+import pennylane.numpy as np
 
 class TensorNetwork:
     """
@@ -12,11 +14,10 @@ class TensorNetwork:
     """
     backend = "qasm_simulator"
     
-    def __init__(self, q, c):
+    def __init__(self, wires):
         self.backend = "qasm_simulator"
-        self.q = q
-        self.c = c
-        self.n_qubits = len(q)
+        self.wires = wires
+        self.n_qubits = len(wires)
     
     def set_params(self, params):
         if self.n_params == len(params):
@@ -27,13 +28,13 @@ class TensorNetwork:
 
 class TNWithEntangler(TensorNetwork):
     '''Tensor network that requires an entangler'''
-    def __init__(self, q, c, entangler):
-        super().__init__(q, c)
-        if not isinstance(entangler, Entangler.Entangler):
-            raise TypeError('Should supply an entangler')
+    def __init__(self, wires, entangler):
+        super().__init__(wires)
+        #if not isinstance(entangler, Entangler.Entangler):
+        #raise TypeError('Should supply an entangler')
         self.entangler = entangler
         
-
+'''
 class TestTN(TensorNetwork):
 
     def __init__(self, q, c, ent):
@@ -49,14 +50,14 @@ class TestTN(TensorNetwork):
         circ.cx(self.q[0], self.q[1])
         return circ
 
-
+'''
 class Checkerboard(TNWithEntangler):
     '''
     Tensor network where gates are applied in a checkerboard pattern
     '''
 
-    def __init__(self, q, c, entangler, params=None, depth=4):
-        super().__init__(q, c, entangler)
+    def __init__(self, wires, entangler, params=None, depth=4):
+        super().__init__(wires, entangler)
         self.depth = depth
         self.n_tensors = (self.n_qubits // 2) * depth
         self.n_params = self.n_tensors * entangler.n_params
@@ -69,7 +70,6 @@ class Checkerboard(TNWithEntangler):
         ps = params if params is not None else self.params
         assert len(ps) == self.n_params, 'Incorrect number of parameters!'
         pc = cycle(ps)
-        circ = QuantumCircuit(self.q, self.c)
 
         def bulknext(pc):
             return ([next(pc) for j in range(self.entangler.n_params)])
@@ -80,14 +80,14 @@ class Checkerboard(TNWithEntangler):
             for gate in range(n_gates):
                 first_qubit = (gate * 2 + layer) % self.n_qubits
                 second_qubit = (first_qubit + 1) % self.n_qubits
-                self.entangler.apply(self.q, circ, first_qubit, second_qubit, bulknext(pc))
-                circ.barrier()
-            circ.barrier()
-        return circ
+                self.entangler.apply(bulknext(pc),wires=[first_qubit,second_qubit] )
+                qml.Barrier(self.wires)
+            qml.Barrier(self.wires)
+            
 
-    
+'''    
 class RankOne(TensorNetwork):
-    '''Tensor network for building rank-1 (unentangled) states'''
+    """Tensor network for building rank-1 (unentangled) states"""
     def __init__(self, q, c):
         super().__init__(q, c)
         self.n_params = len(q) * 2
@@ -200,9 +200,9 @@ class UCCSD(TensorNetwork):
 
 
 class NQubitTree(TensorNetwork):
-    '''
+    """
     Tree tensor network for arbitrary amount of qubits
-    '''
+    """
     def __init__(self, entangler, n_qubits, params=None):
         self.entangler = entangler
         self.n_qubits = n_qubits
@@ -246,9 +246,9 @@ class NQubitTree(TensorNetwork):
     
 
 class SixQubitTree(TensorNetwork):
-    '''
+    """
     general tree to be implemented later
-    '''
+    """
     def __init__(self, entangler, params=None):
         #self.backend = "qasm_simulator"
         self.n_tensors = 5
@@ -267,7 +267,7 @@ class SixQubitTree(TensorNetwork):
     #        raise ValueError('Incorrect number of parameters!')
 
     def apply(self, q, circ, params=None):
-        '''Apply the tensor network circuit'''
+        """Apply the tensor network circuit"""
         if params is not None:
             ps = params
         else:
@@ -296,6 +296,6 @@ if __name__ == '__main__':
     # print(TN.n_params)
     # print(circ.depth())
     pass
-
+'''
         
 
