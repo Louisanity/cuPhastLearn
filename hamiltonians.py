@@ -1,6 +1,9 @@
 from numpy import eye, array, diag, zeros, kron, complex64
 from numpy.linalg import eig, eigh
 from functools import reduce
+
+import pennylane as qml
+import pennylane.numpy as np
 #from scipy.sparse import csr_matrix
 
 def ising_model(n_spins, J, hx):
@@ -126,7 +129,7 @@ def XY_model(n_spins, gamma, g):
     return ham
 
 ### ---------
-
+'''
 def explicit_hamiltonian(ham_dict):
     n_qubits = len(list(ham_dict.keys())[0])
     I = eye(2)
@@ -146,6 +149,12 @@ def explicit_hamiltonian(ham_dict):
         total_mat = energy * reduce(kron, matrices)
         H +=total_mat
     return H
+'''
+def explicit_hamiltonian(ham_dict):
+    coeffs = list(ham_dict.values())
+    obs = [qml.pauli.string_to_pauli_word(i) for i in ham_dict.keys()]
+    H = qml.matrix(qml.Hamiltonian(coeffs, obs))
+    return H
 
 def exact_gs(ham_dict):
     H = explicit_hamiltonian(ham_dict)
@@ -156,7 +165,7 @@ def exact_gs(ham_dict):
         w, v = eig(H)
     multiplicity = list(w).count(w[0])
     return (multiplicity, w[0], v[:, :multiplicity])
-
+'''
 def qiskit_dict(ham_dict):
     label_coeff_list = []
     for label, value in ham_dict.items():
@@ -164,3 +173,4 @@ def qiskit_dict(ham_dict):
                                  'coeff':
                                  {'real': value.real, 'imag':value.imag}})
     return {'paulis': label_coeff_list}
+'''

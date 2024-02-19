@@ -1,7 +1,9 @@
+import pennylane as qml
+import pennylane.numpy as np
+
 from itertools import cycle
 from math import pi
 import abc
-
 ## I never use apply with params=None, do I really need it?  The inits
 ## can go to the garbage as well. I could also stop making classes and
 ## just pass a function to the TensorNetwork constructor
@@ -10,25 +12,47 @@ import abc
 class Entangler(metaclass=abc.ABCMeta):
     """Two-qubit gate used as an element of a TN state
     """
-    def __init__(self, params=None):
-        self.n_params = 2 
-        if params is None:
-            self.params = [0] * self.n_params
-        else:
-            self.set_params(params)
-
+    def __init__(self):
+        self.n_params = None
+        #self.set_params(params)
+    '''
     def set_params(self, params):
         """Set the parameters of the gate"""
         if len(params) == self.n_params:
             self.params = params
         else:
-            raise ValueError('Incorrect amount of parameters!')
-
+            raise ValueError('Incorrect number of parameters!')
+    '''
+    '''
     @abc.abstractmethod
     def apply(self, q, circ, i, j, params=None):
         """
         Apply with internal parameters if None
         otherwise use those supplied"""
+    '''
+    
+class IsingEntangler():
+    """Entangler that uses the operators found in
+    the Ising model
+    <| (exp(X) \otimes exp(X)) exp(ZZ) (exp(Z) \otimes exp(Z))
+    """
+    def __init__(self):
+        self.n_params = 5
+        
+    def apply(self, params, wires):
+        if len(params) != 5:
+            raise ValueError('need 5 parameters!')
+        if len(wires) != 2:
+            raise ValueError('only works on 2 qubits!')
+        pc = cycle(params)
+        qml.RX(next(pc), wires[0])
+        qml.RX(next(pc), wires[1])
+        qml.CNOT(wires)
+        qml.PhaseShift(next(pc), wires[1])
+        qml.CNOT(wires)
+        qml.RZ(next(pc), wires[0])
+        qml.RZ(next(pc), wires[1])
+        
 
 class OptimalEntangler(Entangler):
     """Entangler capable of implementing anything from SU(4), which uses
@@ -38,63 +62,30 @@ class OptimalEntangler(Entangler):
     """
     def __init__(self, params=None):
         self.n_params = 15
-        if params is None:
-            self.params = [0] * self.n_params
-        else:
-            self.set_params(params)
+        self.set_params(params)
 
             
-    def apply(self, q, circ, i, j, params):
+    def apply(self, params, wires):
         if len(params) == self.n_params:
             pc = cycle(params)
         else:
-            raise ValueError('Incorrect number of parameters!')
-        circ.u3(next(pc), next(pc), next(pc), q[i])
-        circ.u3(next(pc), next(pc), next(pc), q[j])
+            raise ValueError('Need 15 parameters!')
+        if len(wires)!=2:
+            raise ValueError('Entangler only apply on two qubits!')
+        qml.Rot(next(pc), next(pc), next(pc), wires[0])
+        qml.Rot(next(pc), next(pc), next(pc), wires[1])
 
-        circ.cx(q[j], q[i])
-        circ.rz(next(pc), q[i])
-        circ.ry(next(pc), q[j])
-        circ.cx(q[i], q[j])
-        circ.ry(next(pc), q[j])
-        circ.cx(q[j], q[i])
+        qml.CNOT(wires[::-1])
+        qml.RZ(next(pc), wires[0])
+        qml.RY(next(pc), wires[1])
+        qml.CNOT(wires)
+        qml.RY(next(pc), wires[1])
+        qml.CNOT(wires[::-1])
         
-        circ.u3(next(pc), next(pc), next(pc), q[i])
-        circ.u3(next(pc), next(pc), next(pc), q[j])
+        qml.Rot(next(pc), next(pc), next(pc), wires[0])
+        qml.Rot(next(pc), next(pc), next(pc), wires[1])
     
 
-class IsingEntangler(Entangler):
-    """Entangler that uses the operators found in
-    the Ising model
-    <| (exp(X) \otimes exp(X)) exp(ZZ) (exp(Z) \otimes exp(Z))
-    """
-    def __init__(self, params=None):
-        self.n_params = 5
-        if params is None:
-            self.params = [0] * self.n_params
-        else:
-            self.set_params(params)
-    
-    def apply(self, q, circ, i, j, params=None):
-        """
-        q - QuantumRegister
-        circ - QuantumCircuit
-        i, j - qubits to act on
-        """
-        if params is None:
-            pc = cycle(self.params)
-        else:
-            if len(params) == self.n_params:
-                pc = cycle(params)
-            else:
-                raise ValueError('Incorrect number of parameters!')
-        circ.rx(next(pc), q[i])
-        circ.rx(next(pc), q[j])
-        circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
-        circ.cx(q[i], q[j])
-        circ.rz(next(pc), q[i])
-        circ.rz(next(pc), q[j])
 
 
 class ConservingEntangler(Entangler):
@@ -103,30 +94,26 @@ class ConservingEntangler(Entangler):
     states, conserves particle number"""
     def __init__(self, params=None):
         self.n_params = 3
-        if params is None:
-            self.params = [0] * self.n_params
+        self.set_params(params)
+
+
+    def apply(self, params, wires):
+        if len(params) == self.n_params:
+            pc = cycle(params)
         else:
-            self.set_params(params)
+            raise ValueError('need 3 parameters!')
 
-
-    def apply(self, q, circ, i, j, params=None):
-        if params is None:
-            pc = cycle(self.params)
-        else:
-            if len(params) == self.n_params:
-                pc = cycle(params)
-            else:
-                raise ValueError('Incorrect number of parameters!')
-
-        circ.rz(next(pc), q[i])
-        circ.rz(next(pc), q[j])
-        circ.cx(q[j], q[i])
+        qml.RZ(next(pc), wires[i])
+        qml.RZ(next(pc), wires[j])
+        qml.RZ(wires[::-1])
         
-        circ.h(q[j])
-        circ.crz(next(pc), q[i], q[j])
-        circ.h(q[j])
+        qml.Hadamard(wires[j])
+        qml.CRZ(next(pc), wires)
+        qml.Hadamard(wires[j])
         
-        circ.cx(q[j], q[i])
+        qml.CNOT(wires[::-1])
+        
+'''
         
 class ConservingEntanglerOne(Entangler):
     """Two-qubit gate U_1 from arxiv:1805.04340. 
@@ -198,7 +185,7 @@ class AntiIsingEntangler(Entangler):
         circ.h(q[i])
         circ.h(q[j])
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
         circ.h(q[i])
         circ.h(q[j])
@@ -229,22 +216,22 @@ class XYEntangler(Entangler):
         circ.rx(next(pc), q[j])
         
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
 
-        circ.p(pi/2, q[i])
-        circ.p(pi/2, q[j])
+        circ.u1(pi/2, q[i])
+        circ.u1(pi/2, q[j])
         circ.h(q[i])
         circ.h(q[j])
         
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
         
         circ.h(q[i])
         circ.h(q[j])
-        circ.p(-pi/2, q[i])
-        circ.p(-pi/2, q[j])
+        circ.u1(-pi/2, q[i])
+        circ.u1(-pi/2, q[j])
         
         circ.rz(next(pc), q[i])
         circ.rz(next(pc), q[j])
@@ -290,14 +277,14 @@ class CartanEntangler(Entangler):
         circ.h(q[i])
         circ.h(q[j])
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
         circ.h(q[i])
         circ.h(q[j])
 
         ### exp(-i a ZZ)
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
 
         ### exp(-i a YY)
@@ -306,7 +293,7 @@ class CartanEntangler(Entangler):
         circ.h(q[i])
         circ.h(q[j])
         circ.cx(q[i], q[j])
-        circ.p(next(pc), q[j])
+        circ.u1(next(pc), q[j])
         circ.cx(q[i], q[j])
         circ.h(q[i])
         circ.h(q[j])
@@ -374,3 +361,4 @@ class DumbEntangler(Entangler):
     
     def apply(self, q, circ, i, j, params=None):
         circ.cz(q[i], q[j])
+'''
