@@ -22,28 +22,17 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the main script to start the analysis or phase identification process. 
-Ensure to replace --option1 value1 with actual command-line arguments relevant to your project.
+Run the main script to start the analysis or phase identification process for different molecule.
 
 ```bash
-python main.py --option1 value1 --option2 value2
+python main.py --molecule simulated_molecule
 ```
-
-## Contributing
-We welcome contributions and suggestions! Please follow the steps below to contribute:
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
-- Inspiration drawn from "A Matter of Taste" on quantum computing applications in condensed matter physics.
-- Utilization of datasets and resources from PennyLane and Wikipedia on Heisenberg models and phase transitions.
+- Utilization of datasets and resources from PennyLane and cuQUantum on Heisenberg models and phase transitions.
 
 ## Resources
 - [PennyLane's QML Data](https://docs.pennylane.ai/en/stable/code/qml_data.html)
@@ -54,6 +43,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 For more information, reach out to us at:
-- **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/YourGitHubRepo/QuantumPhaseIdentifier)
+- **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/Louisanity/QuantumPhastLearning)
 - **Email**: xxx@imperail.ac.uk
 
