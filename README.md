@@ -7,6 +7,7 @@ PhastLearn represents a significant leap in Quantum Machine Learning (QML), offe
 
 ## Objective
 To develop a quantum computing technique capable of identifying phase transitions in Heisenberg spin systems. This includes studying the phase diagram and applying machine learning algorithms to label phases of the system based on the provided datasets. We also propose a quantum-classical-quantum (VQE-based) hybrid quantum algorithm for quantum phase research.
+
 <img src="figures/CQC-framework.png" alt="Logo" width="800"/>
 
 
