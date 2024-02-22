@@ -1,0 +1,7 @@
+pennylane
+numpy
+qiskit
+matplotlib
+scipy
+pandas
+numba
