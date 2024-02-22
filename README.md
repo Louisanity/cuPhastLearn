@@ -52,7 +52,7 @@ The script outputs a CSV file (~few tens MB) named with the current date and tim
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
-- Utilization of datasets and resources from PennyLane and cuQUantum on Heisenberg models and phase transitions.
+This research work was conducted with the support of QHack 2024, an event graciously backed by Xanadu, NVIDIA, Amazon, and Denver. We extend our heartfelt gratitude to Andreas Hehn, Tobi Odufeso, and Tom Lubowe for their invaluable assistance and insights, which have been pivotal to the success of this project. Their expertise and guidance have greatly contributed to the advancements presented herein. We also acknowledge NVIDIA and Denver's support with four A100 HPC units to test our algorithm. Additionally, Amazon supported us by powering up with cloud server services.
 
 ## Resources
 - [PennyLane's QML Data](https://docs.pennylane.ai/en/stable/code/qml_data.html)
