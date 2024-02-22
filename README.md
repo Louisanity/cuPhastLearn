@@ -3,6 +3,8 @@
 ## Overview
 This project explores the application of quantum computing to study condensed matter models, focusing on identifying phases and phase transitions in materials. Utilizing a quantum approach, we investigate the Heisenberg spin system defined by specific Hamiltonian dynamics, where interactions are characterized by \(J_{xy} < 0\) and \(J_z < 0\). Our goal is to analyze how properties of the system change under various conditions and identify discontinuities indicating phase transitions.
 
+![Logo](phastlearn.png)
+
 ## Objective
 To develop a quantum computing technique capable of identifying phase transitions in Heisenberg spin systems. This includes studying the phase diagram and applying machine learning algorithms to label phases of the system based on the provided datasets.
 
