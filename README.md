@@ -16,8 +16,8 @@ To develop a quantum computing technique capable of identifying phase transition
 Clone the repository and install the required Python packages.
 
 ```bash
-git clone https://github.com/Louisanity/QuantumPhastLearning.git
-cd QuantumPhastLearning
+git clone https://github.com/Louisanity/cuPhastLearn.git
+cd cuPhastLearn
 pip install -r requirements.txt
 ```
 
