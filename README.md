@@ -60,6 +60,8 @@ This research work was conducted with the support of QHack 2024, an event gracio
 - [Phase Transition - Wikipedia](https://en.wikipedia.org/wiki/Phase_transition)
 - [PennyLane Tutorial on Ising Model](https://pennylane.ai/qml/demos/tutorial_isingmodel_PyTorch/)
 - [PennyLane Datasets](https://pennylane.ai/datasets/qspin/transverse-field-ising-model)
+- [PennyLane Lightening Plug-in](https://docs.pennylane.ai/projects/lightning/en/stable/index.html)
+- [cuQuantum SDK](https://developer.nvidia.com/cuquantum-sdk)
 
 ## Contact
 For more information, reach out to us at:
