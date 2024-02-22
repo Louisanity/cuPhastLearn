@@ -1,6 +1,6 @@
 # cuPhastLearn: Fast Phase-Transition Prediction with Quantum Machine Learning with Multi-GPU Acceleration
 
-<img src="figures/phastlearn.png" alt="Logo" width="250"/>
+<img src="figures/phastlearn.png" alt="Logo" width="175"/>
 
 ## Overview
 This project explores the application of quantum computing to study condensed matter models, focusing on identifying phases and phase transitions in materials. Utilizing a quantum approach, we investigate the Heisenberg spin system defined by specific Hamiltonian dynamics, where interactions are characterized by \(J_{xy} < 0\) and \(J_z < 0\). Our goal is to analyze how properties of the system change under various conditions and identify discontinuities indicating phase transitions.
