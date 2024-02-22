@@ -84,6 +84,6 @@ This research work was conducted with the support of QHack 2024, an event gracio
 
 ## Contact
 For more information, reach out to us at:
-- **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/Louisanity/QuantumPhastLearning)
+- **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/Louisanity/cuPhastLearn)
 
 
