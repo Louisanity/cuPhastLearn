@@ -56,7 +56,7 @@ The PhastLearn framework showcases exceptional predictive accuracy in determinin
 
 ### VQE-CQNN
 
-<img src="figures/training_result.png" alt="training" width="800"/>
+<img src="figures/training_result.png" alt="training" width="600"/>
 
 ### Benchmarking with cuQuantum
 
