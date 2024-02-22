@@ -48,6 +48,18 @@ python vqe_data_preparation.py --n_qubits 10 --depth 4 --cuda False
 
 The script outputs a CSV file (~few tens MB) named with the current date and time, containing the optimized parameters, Hamiltonian parameters, energy values, and state labels generated during the simulation. This file can be used for further analysis or visualization of VQE performance. It may take time to run this code, so nice to run this code with acceleration.
 
+## Result
+### Phase Transition with Different Model
+
+
+### CQCNN
+
+
+### Benchmarking with cuQuantum
+
+
+
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
