@@ -51,6 +51,7 @@ The script outputs a CSV file (~few tens MB) named with the current date and tim
 ## Result
 ### Phase Transition with Different Model
 The PhastLearn framework showcases exceptional predictive accuracy in determining quantum phase transitions, as demonstrated by the sigmoidal response curve at critical points in both the transverse field Ising model and the XXZ model. The results, visualized in the provided graphs, reveal the model's capability to distinguish between ordered and disordered phases with a high degree of confidence. This robust classification performance, alongside our framework's computational efficiency and scalability, marks a significant advancement in the field of Quantum Machine Learning.
+
 <img src="figures/result.png" alt="phase-transition" width="600"/>
 
 ### VQE-CQNN
