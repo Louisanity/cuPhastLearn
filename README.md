@@ -57,5 +57,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 For more information, reach out to us at:
 - **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/Louisanity/QuantumPhastLearning)
-- **Email**: xxx@imperail.ac.uk
+
 
