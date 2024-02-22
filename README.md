@@ -12,7 +12,7 @@ To develop a quantum computing technique capable of identifying phase transition
 
 
 ## Features
-- **Quantum Circuit Implementation**: Design and implement quantum circuits to simulate Heisenberg spin systems.
+- **Quantum Circuit Implementation**: Design and implement quantum circuits to simulate spin chain systems.
 - **Phase Diagram Analysis**: Analyze changes in system properties to identify phase transitions.
 - **Machine Learning Integration**: Employ machine learning techniques to classify phases of spin systems.
 - **Computational Speed and Scalability:** Leverages a multi-GPU framework and the PennyLane software to demonstrate significant computational acceleration, overcoming traditional bottlenecks in phase transition prediction.
