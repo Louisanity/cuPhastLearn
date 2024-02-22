@@ -31,7 +31,7 @@ sys.path.append("..")
 import Entangler
 import TensorNetwork
 import hamiltonians
-import utils
+
 
 # Set matplotlib font size for plots
 plt.rcParams.update({'font.size': 14})
