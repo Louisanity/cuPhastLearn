@@ -22,11 +22,24 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the main script to start the analysis or phase identification process for different molecule.
-
+### VQE for Data Preparation (Customized Function)
+To use the script, execute it from the command line with the required arguments. Here's how:
 ```bash
-python main.py --molecule simulated_molecule
+python vqe_data_preparation.py --n_qubits <number_of_qubits> --depth <circuit_depth> --cuda <True/False>
 ```
+
+Parameters:
+--n_qubits: Specifies the number of qubits in the quantum circuit. Must be an integer.
+--depth: Defines the depth of the quantum circuit. Must be an integer.
+--cuda: A boolean flag (True/False) indicating whether to use a CUDA-enabled device for computation. Default is False.
+
+Example:
+To run a simulation with 10 qubits, a circuit depth of 4, without CUDA acceleration (make sure you have installed cuQuantum and Pennylane.lightning):
+```bash
+python vqe_data_preparation.py --n_qubits 10 --depth 4 --cuda False
+```
+
+The script outputs a CSV file (~few tens MB) named with the current date and time, containing the optimized parameters, Hamiltonian parameters, energy values, and state labels generated during the simulation. This file can be used for further analysis or visualization of VQE performance. It may take time to run this code, so nice to run this code with acceleration.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
