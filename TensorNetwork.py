@@ -4,7 +4,6 @@ import Entangler
 from itertools import cycle, combinations_with_replacement, permutations, count
 import numpy as np
 # from utils import two_qubit_pauli
-import utils
 import pennylane as qml
 import pennylane.numpy as np
 
