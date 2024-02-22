@@ -59,10 +59,10 @@ The PhastLearn framework showcases exceptional predictive accuracy in determinin
 
 ### Benchmarking with cuQuantum
 
-<img src="figures/processing.png" alt="Logo" width="800"/>
+<img src="figures/processing.png" alt="Logo" width="600"/>
 
 Here is the benchmarking of the linearity performance of multi-GPU
-<img src="figures/linearity_result.png" alt="Logo" width="800"/>
+<img src="figures/linearity_result.png" alt="Logo" width="600"/>
 
 
 
