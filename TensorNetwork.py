@@ -1,4 +1,3 @@
-from qiskit import Aer, execute
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 import Entangler
 from itertools import cycle, combinations_with_replacement, permutations, count
