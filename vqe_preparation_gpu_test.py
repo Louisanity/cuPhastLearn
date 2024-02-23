@@ -29,7 +29,7 @@ TN = TensorNetwork.Checkerboard(wires, ent, depth=depth)
 conv_tol = 1e-6
 method = "L-BFGS-B"
 
-cuda = False
+cuda = True
 
 start_time = time.time()
 
