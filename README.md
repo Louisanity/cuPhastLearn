@@ -74,6 +74,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 This research work was conducted with the support of QHack 2024, an event graciously backed by Xanadu, NVIDIA, Amazon, and Denver. We extend our heartfelt gratitude to Andreas Hehn, Tobi Odufeso, and Tom Lubowe for their invaluable assistance and insights, which have been pivotal to the success of this project. Their expertise and guidance have greatly contributed to the advancements presented herein. We also acknowledge NVIDIA and Denver's support with four A100 HPC units to test our algorithm. Additionally, Amazon supported us by powering up with cloud server services.
 
 ## Resources
+
+For pennylane-lightning-gpu plugin setup, please see this instruction:
+[PennyLane-Lightning-GPU 0.34.0](https://pypi.org/project/PennyLane-Lightning-GPU/)
+
 - [PennyLane's QML Data](https://docs.pennylane.ai/en/stable/code/qml_data.html)
 - [Ising Model - Wikipedia](https://en.wikipedia.org/wiki/Ising_model)
 - [Phase Transition - Wikipedia](https://en.wikipedia.org/wiki/Phase_transition)
