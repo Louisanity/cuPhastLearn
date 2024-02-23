@@ -88,6 +88,6 @@ For pennylane-lightning-gpu plugin setup, please see this instruction:
 
 ## Contact
 For more information, reach out to us at:
-- **Project Link**: [https://github.com/YourGitHubRepo/QuantumPhaseIdentifier](https://github.com/Louisanity/cuPhastLearn)
+- **Project Link**: [https://github.com/Louisanity/cuPhastLearn](https://github.com/Louisanity/cuPhastLearn)
 
 
