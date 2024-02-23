@@ -75,7 +75,7 @@ The PhastLearn framework showcases exceptional predictive accuracy in determinin
 
 <img src="figures/processing.png" alt="benchmarking" width="600"/>
 
-Here is the benchmarking of the linearity performance of multi-GPU
+Here is the benchmarking of the linearity performance with multi-GPU
 <img src="figures/linearity_result.png" alt="linearity" width="600"/>
 
 
