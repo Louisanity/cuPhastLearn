@@ -37,7 +37,7 @@ For CPU:
 python vqe_preparation_cpu_test.py
 ```
 
-For GPU (please make sure you follow this instruction to install every relevant packages):
+For GPU (please make sure you follow [this instruction](https://pypi.org/project/PennyLane-Lightning-GPU/) to set up env correctly):
 ```bash
 python vqe_preparation_gpu_test.py
 ```
