@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ### VQE for Data Preparation (Customized Function)
 To use the script, execute it from the command line with the required arguments. Here's how:
 ```bash
-python vqe_data_preparation.py --n_qubits <number_of_qubits> --depth <circuit_depth> --cuda <True/False>
+python vqe_preparation.py --n_qubits <number_of_qubits> --depth <circuit_depth> --cuda <True/False>
 ```
 
 Parameters:
@@ -43,7 +43,7 @@ Parameters:
 Example:
 To run a simulation with 10 qubits, a circuit depth of 4, without CUDA acceleration (make sure you have installed cuQuantum and Pennylane.lightning):
 ```bash
-python vqe_data_preparation.py --n_qubits 10 --depth 4 --cuda False
+python vqe_preparation.py --n_qubits 10 --depth 4 --cuda False
 ```
 
 The script outputs a CSV file (~few tens MB) named with the current date and time, containing the optimized parameters, Hamiltonian parameters, energy values, and state labels generated during the simulation. This file can be used for further analysis or visualization of VQE performance. It may take time to run this code, so nice to run this code with acceleration. Then you can run our VQE-QCNN in the demo notebook.
