@@ -29,6 +29,19 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+### VQE for Data Preparation (Test Code)
+For testing our vqe algorithm for data preparation, you can simply run:
+
+For CPU:
+```bash
+python vqe_preparation_cpu_test.py
+```
+
+For GPU (please make sure you follow this instruction to install every relevant packages):
+```bash
+python vqe_preparation_gpu_test.py
+```
+
 ### VQE for Data Preparation (Customized Function)
 To use the script, execute it from the command line with the required arguments. Here's how:
 ```bash
