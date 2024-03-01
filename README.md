@@ -3,7 +3,7 @@
 <img src="figures/phastlearn.png" alt="Logo" width="175"/>
 
 ## Overview
-PhastLearn represents a significant leap in Quantum Machine Learning (QML), offering a novel framework designed for the rapid and scalable prediction of phase transitions within quantum systems. Central to PhastLearn is the innovative CQC (Classical-Quantum-Classical) model, which synergizes the computational power of quantum computing with cutting-edge machine learning techniques to set new benchmarks in accuracy, speed, and scalability for QML applications.
+PhastLearn represents a significant leap in Quantum Machine Learning (QML), offering a novel framework designed for the rapid and scalable prediction of phase transitions within quantum systems. Central to PhastLearn is the innovative QCQ (Quantum-Classical-Quantum) model, which synergizes the computational power of quantum computing with cutting-edge machine-learning techniques to set new benchmarks in accuracy, speed, and scalability for QML applications.
 
 ## Objective
 To develop a quantum computing technique capable of identifying phase transitions in Heisenberg spin systems. This includes studying the phase diagram and applying machine learning algorithms to label phases of the system based on the provided datasets. We also propose a quantum-classical-quantum (VQE-based) hybrid quantum algorithm for quantum phase research.
