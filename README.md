@@ -103,5 +103,19 @@ Reference:
 ## Contact
 For more information, reach out to us at:
 - **Project Link**: [https://github.com/Louisanity/cuPhastLearn](https://github.com/Louisanity/cuPhastLearn)
+  
+## How to cite
+
+If you used this package for your research, please cite:
+
+```text
+@article{kuan2024quantum,
+  title={Quantum-HPC Framework with GPU-Enabled Hybrid Quantum-Classical Workflow: Applications in Quantum Simulations of Materials},
+  author={Kuan-Cheng Chen, Xiaotian Xu and Xiaoren Li},
+  journal={arXiv preprint arXiv:2403.xxxx},
+  year={2024}
+}
+```
+
 
 
