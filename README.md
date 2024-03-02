@@ -106,7 +106,7 @@ For more information, reach out to us at:
   
 ## How to cite
 
-If you used this package for your research, please cite:
+If you used this package or framework for your research, please cite:
 
 ```text
 @article{kuan2024quantum,
