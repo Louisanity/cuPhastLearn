@@ -1,4 +1,4 @@
-# cuPhastLearn: Fast Phase-Transition Prediction with Quantum Machine Learning with Multi-GPU Acceleration
+# cuPhastLearn: Fast Phase-Transition Prediction with Quantum Machine Learning and Multi-GPU Acceleration
 
 <img src="figures/phastlearn.png" alt="Logo" width="175"/>
 
