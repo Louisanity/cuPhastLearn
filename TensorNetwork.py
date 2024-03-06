@@ -5,6 +5,22 @@ import numpy as np
 import pennylane as qml
 import pennylane.numpy as np
 
+class TensorNetwork:
+    """
+    Tensor Network states prepared on qubits
+    """
+    backend = "qasm_simulator"
+    
+    def __init__(self, wires):
+        self.backend = "qasm_simulator"
+        self.wires = wires
+        self.n_qubits = len(wires)
+    
+    def set_params(self, params):
+        if self.n_params == len(params):
+            self.params = params
+        else:
+            raise ValueError('Incorrect number of parameters!')
 
 class TNWithEntangler(TensorNetwork):
     '''Tensor network that requires an entangler'''
