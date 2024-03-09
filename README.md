@@ -109,10 +109,10 @@ For more information, reach out to us at:
 If you used this package or framework for your research, please cite:
 
 ```text
-@article{kuan2024quantum,
-  title={Quantum-HPC Framework with GPU-Enabled Hybrid Quantum-Classical Workflow: Applications in Quantum Simulations of Materials},
-  author={Kuan-Cheng Chen, Xiaotian Xu and Xiaoren Li},
-  journal={arXiv preprint arXiv:2403.xxxx},
+@article{chen2024quantum,
+  title={Quantum-HPC Framework with multi-GPU-Enabled Hybrid Quantum-Classical Workflow: Applications in Quantum Simulations},
+  author={Kuan-Cheng Chen, Xiaoren Li, Xiaotian Xu, Yun-Yuan Wang and Chen-Yu Liu},
+  journal={arXiv preprint arXiv:2403.5458153},
   year={2024}
 }
 ```
