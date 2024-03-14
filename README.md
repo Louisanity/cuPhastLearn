@@ -79,6 +79,9 @@ Here is the benchmarking of the linearity performance with multi-GPU
 <img src="figures/linearity_result.png" alt="linearity" width="600"/>
 
 
+## Future Work
+Future development aims to enhance the QCQ architecture by harnessing the [CUDA Quantum](https://ieeexplore.ieee.org/abstract/document/10247886).
+platform, delivering substantial speedup and flexibility for quantum-classical computing workflows through distributed quantum simulation and seamless integration with machine learning frameworks.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -90,6 +93,8 @@ This research work was conducted with the support of QHack 2024, an event gracio
 
 For pennylane-lightning-gpu plugin setup, please see this instruction:
 [PennyLane-Lightning-GPU](https://pypi.org/project/PennyLane-Lightning-GPU/)
+
+
 
 Reference:
 - [PennyLane's QML Data](https://docs.pennylane.ai/en/stable/code/qml_data.html)
@@ -103,7 +108,7 @@ Reference:
 ## Contact
 For more information, reach out to us at:
 - **Project Link**: [https://github.com/Louisanity/cuPhastLearn](https://github.com/Louisanity/cuPhastLearn)
-  
+
 ## How to cite
 
 If you used this package or framework for your research, please cite:
