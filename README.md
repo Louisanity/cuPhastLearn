@@ -81,7 +81,7 @@ Here is the benchmarking of the linearity performance with multi-GPU
 
 ## Future Work
 Future development aims to enhance the QCQ architecture by harnessing the [CUDA Quantum](https://ieeexplore.ieee.org/abstract/document/10247886).
-platform, delivering substantial speedup and flexibility for quantum-classical computing workflows through distributed quantum simulation and seamless integration with machine learning frameworks.
+platform as quantum simulators, delivering substantial speedup and flexibility for quantum-classical computing workflows through distributed quantum simulation and seamless integration with machine learning frameworks.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
