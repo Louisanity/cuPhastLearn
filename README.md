@@ -114,11 +114,13 @@ For more information, reach out to us at:
 If you used this package or framework for your research, please cite:
 
 ```text
-@article{chen2024quantum,
-  title={Quantum-HPC Framework with multi-GPU-Enabled Hybrid Quantum-Classical Workflow: Applications in Quantum Simulations},
-  author={Chen, Kuan-Cheng and Li, Xiaoren and Xu, Xiaotian and Wang, Yun-Yuan and Liu, Chen-Yu},
-  journal={arXiv preprint arXiv:2403.05828},
-  year={2024}
+@misc{xu2024hamiltoniq,
+      title={HamilToniQ: An Open-Source Benchmark Toolkit for Quantum Computers}, 
+      author={Xiaotian Xu and Kuan-Cheng Chen and Robert Wille},
+      year={2024},
+      eprint={2404.13971},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph}
 }
 ```
 
